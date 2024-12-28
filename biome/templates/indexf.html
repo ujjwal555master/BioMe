@@ -1,0 +1,216 @@
+{% extends 'basef.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block css %}
+body,html{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 80vh;
+    font-family: sans-serif;
+}
+.Section_top{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    background-image: url(images/image.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    justify-content: center;
+    animation: change 30s infinite ease-in-out;
+}
+.content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+
+}
+.content h1{
+    color: white;
+    font-size: 60px4
+    letter-spacing: 15px;
+}
+.content h1 span{
+    color: black;
+}
+.content a{
+    background: #85c1ee;
+    padding: 10px 24px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 20px;
+}
+.content a:hover{
+    background: #034e88;
+    color: #fff;
+}
+{% load static %}
+@keyframes change{
+    0%
+    {
+        background-image: url({% static 'back3.jpg' %});
+    }
+    20%
+    {
+        background-image: url({% static 'back3.jpg' %});
+    }
+    40%
+    {
+        background-image: url({% static 'back3.jpg' %});
+    }
+    60%
+    {
+        background-image: url({% static 'back5.jpg' %});
+    }
+    80%
+    {
+        background-image: url({% static 'back5.jpg' %});
+    }
+    100%
+    {
+        background-image: url({% static 'back5.jpg' %});
+    }
+}
+
+{% endblock css %}
+
+
+
+{% block body %}
+    <!-- Jumbotron -->
+   <div class="Section_top">
+        <div class="content">
+            <h1>BioMe...<span class="auto-type"> From waste to wonder</span></h1>
+            <a href="#">Welcome</a>
+        </div>
+    </div> 
+<!-- Jumbotron -->
+
+    <div class="container my-5">
+        <h5 class="text-center">BioMe is a family business committed to bringing you practical products & information for sustainable living.
+            We hope to share what we have learned from over 5 years of living close to the land. </h5>
+    </div>
+
+    <div class="container my-5">
+        <!-- Card -->
+        <div class="card-group">
+            {% for item in myposts|slice:":3" %}
+            <div class="card">
+              <img src="/media/{{item.thumbnail}}" class="card-img-top img-fluid" style="width:400px" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{item.title}}</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-body-secondary">Last updated 3 mins ago</small>
+              </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <h3 class="text-center">Top Seller</h3>
+    </div>
+
+    <div class="container">
+        <div class="card-group">
+        {% for i in products|slice:":3" %}
+        <div class="card" style="width: 15rem;">
+            <img src="/media/{{i.image}}" class="card-img-top" style="height:380px"alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">{{i.desc|slice:"0:53"}}...</p>
+              <a href="/shop/products/{{i.id}}" class="btn btn-primary">Quick View</a>
+            </div>
+          </div>
+        {% endfor %}
+        <div>
+        </div>
+        <div class="container my-5">
+            <h3 class="text-center">Why Choose BioMe</h3>
+        </div>
+
+    <div class="container my-2">
+
+        <div class="container mt-4">
+            <ul class="list-group d-flex flex-row">
+                <li class="list-inline-item">
+                    <div class="row">
+                      <div class="col">
+                        {% load static %}
+                        <img src="{% static 'leaf1.svg' %}" alt="Image 2" class="img-fluid">
+                      </div>
+                      <div class="col">
+                        <h5>A Tree Planted for Every Order</h5>
+                        <p>Your purchases plant trees, through our partnership with the
+                          Trees for the Future Foundation.</p>
+                        <a href="page2.html" class="link-sucess">Read More</a>
+                      </div>
+                    </div>
+                  </li>
+              <li class="list-inline-item">
+                <div class="row">
+                  <div class="col">
+                    <img src="{% static 'bulb.svg' %}" alt="Image 2" class="img-fluid">
+                  </div>
+                  <div class="col">
+                    <h5>Products that Give Back</h5>
+                    <p>We source products from values-based brands making a
+                      positive impact in the world.</p>
+                    <a href="page2.html" class="link-sucess">Read More</a>
+                  </div>
+                </div>
+              </li>
+              <li class="list-inline-item">
+                <div class="row">
+                  <div class="col">
+                    <img src="{% static 'carbon.svg' %}" alt="Image 3" class="img-fluid">
+                  </div>
+                  <div class="col">
+                    <h5>Carbon Balanced</h5>
+                    <p>We partner with TerraPass, sponsoring clean energy and
+                      carbon reduction projects.</p>
+                    <a href="page3.html" class="link-success">Read More</a>
+                  </div>
+                </div>
+              </li>
+              <li class="list-inline-item">
+                <div class="row">
+                  <div class="col">
+                    <img src="{% static 'family.svg' %}" alt="Image 4" class="img-fluid">
+                  </div>
+                  <div class="col">
+                    <h5>Family Owned & Operated</h5>
+                    <p>Founded in 2000, Eartheasy is a family owned and operated business.</p>
+                    <a href="page4.html" class="link-success">Read More</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </div>
+    <div class="container my-5">
+      <h3 class="text-center"> &copy; 2024 Sustainable Website | Designed by Our Team</h3>
+      <div>
+ 
+{% endblock body %}
+
+{% block js %}
+<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+<script>
+  var typed = new Typed(".auto-type", {
+    strings: ["Green", "Life", "Future", "Sustainability", "Simple", "Your Shop"],
+    typeSpeed: 150,
+    backSeed: 150,
+    loop: true
+  })
+</script>
+{% endblock js %}

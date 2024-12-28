@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      window.embeddedChatbotConfig = {
+      chatbotId: "YzW00lIJjnMgFQpVYz-J_",
+      domain: "www.chatbase.co"
+      }
+      </script>
+      <script
+      src="https://www.chatbase.co/embed.min.js"
+      chatbotId="YzW00lIJjnMgFQpVYz-J_"
+      domain="www.chatbase.co"
+      defer>
+      </script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>{% block title%} {% endblock %}</title>
+     <style>
+       {% block css %} {% endblock %}
+     </style>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a href="#" class="navbar-brand mx-2">
+            <!-- Logo Image -->
+            {% load static %}
+            <img src="{% static 'logo.jpg' %}" width="60" height="60"alt="" class="d-inline-block align-middle mr-2">
+            <!-- Logo Text -->
+            <span class="text-uppercase font-weight-bold text-success">BIOME</span>
+          </a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto font-weight-bold">
+      <li class="nav-item active mx-2">
+        <a class="nav-link " href="/"><h4>Home</h4> <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link" href="/shop/task"><h4>Tasks</h4></a>
+      </li>
+
+      <li class="nav-item mx-2">
+        <a class="nav-link" href="/shop"><h4>Green Market Hub</h4></a>
+      </li>
+
+      <li class="nav-item mx-2">
+        <a class="nav-link" href="/blog"><h4>Green Library</h4></a>
+      </li>
+
+       <li class="nav-item mx-2">
+        <a class="nav-link" href="/shop/contact"><h4>Contact Us</h4></a>
+      </li>
+
+
+    </ul>
+  </div>
+  <button type="button" class="btn btn-warning mx-2" id="popcart1" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="Vivamus
+      sagittis lacus vel augue laoreet rutrum faucibus.">
+      
+      
+        Coin(<span id="coin"><b>0</b></span>)
+      </button>
+  <div class="text-right"> 
+    <img src="{% static 'coin.svg' %}" width="60" height="60"alt="" class="d-inline-block align-middle mr-2">
+</div> 
+</nav>
+  {% block body %} {% endblock %}
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    {% block js %} {% endblock %}
+    <script>var coinSpan = document.getElementById("coin");
+
+      // Function to update the coin value
+      function updateCoinValue(newValue) {
+        coinSpan.textContent = newValue;
+      }
+      
+      // Example: Update the coin value to 100
+      updateCoinValue(10);
+      var str = "Your coin value"
+      document.getElementById('popcart').setAttribute('data-content', str);
+      $('#popcart1').popover('show');
+    </script> 
+  </body>
+</html>
